@@ -1,0 +1,51 @@
+body{
+    font:normal normal 16px/1 Microsoft YaHei,tahoma,arial,Hiragino Sans GB,\\5b8b\4f53,sans-serif;
+}
+textarea,input{
+    font:normal normal 16px/1.5 Microsoft YaHei,tahoma,arial,Hiragino Sans GB,\\5b8b\4f53,sans-serif;
+}
+img{
+    display:block;
+}
+.clearfix:after {
+    content:"";
+    display: block;
+    clear:both;
+}
+body,p,ol,ul,h1,h2,h3,h4,h5,h6{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+p {
+    margin-bottom: 16px;
+}
+a{
+    color: inherit;
+    text-decoration: none;
+}
+.nowrap{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.fl{
+    float: left;
+}
+.fr{
+    float: right;
+}
+.imgbox{
+    overflow:hidden;
+}
+.imgbox>img{
+    width: 100%;
+}
+.flex_al_center{
+    display: flex;
+    align-items: center;
+}
+.flex_space_between{
+    display: flex;
+    justify-content: space-between;
+}

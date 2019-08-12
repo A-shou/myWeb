@@ -11,11 +11,7 @@ const routes = createRoutesFromFiles(require.context('../', true, /router\.js/))
 
 function createRoutesFromFiles (routeFiles) {
     let _routes = [ //公共页面配置
-        {
-            path: "/",
-            name: 'index',
-            component: (resolve) => require(['../components/apps/index/index.vue'], resolve)
-        },
+
     ]
 
     let zz = /index\/router\.js/
