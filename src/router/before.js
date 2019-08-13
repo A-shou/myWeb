@@ -22,10 +22,10 @@ const routerBefore = function (router, store) {
         }
 
         //登录状态下返回登录页面 自动退出登录状态
-        if (sessionStorage.getItem('token') && (to.path == '/' || to.path == '/login')) {
-            store.commit('logout')
-            return
-        }
+        // if (sessionStorage.getItem('token') && (to.path == '/' || to.path == '/login')) {
+        //     store.commit('logout')
+        //     return
+        // }
 
         next() //跳转至下一个页面
     })
