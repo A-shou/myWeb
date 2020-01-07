@@ -50,7 +50,7 @@ const store = new Vuex.Store({
             //登录
         },
         logout (state) {
-           //登出
+           //注销
         }
     }
 })

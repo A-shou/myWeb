@@ -1,28 +1,24 @@
-import axios from 'axios';
-import store from '../vuex'
+import axios from './index'
+import store from "../vuex";
+import router from "../router";
 
-//ajax配置
+//上传方法  解决边界问题
+var instance = axios.create({
+    withCredentials: true,
+    uptype: 'file',
+    method: 'post',
+    headers: {
+        'authorization': sessionStorage.getItem('token') || '',
+        'cuId': sessionStorage.getItem('uId') || '',
+        'Content-Type': 'multipart/form-data;boundary=----' + new Date().getTime()
+    },
+})
 
-axios.defaults.baseURL = 'http://10.8.51.76:8604/'
-axios.defaults.timeout =  120000;
-axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-
-
-//发送拦截
-axios.interceptors.request.use(function (config) {
+//ajax拦截器 访问拦截
+instance.interceptors.request.use(function (config) {
     // Do something before request is sent
-    if (config.uptype != 'file') {  //上传文件
-        let param = new URLSearchParams();
-
-        for(var key in config.data){
-            param.append(key, config.data[key]);
-        }
-        config.data = param
-    }
-
-    //头部添加字段
-    //config.headers.authorization = sessionStorage.getItem('token') || ''
-    //config.headers.uId = sessionStorage.getItem('uId') || ''
+    config.headers.authorization = sessionStorage.getItem('token') || ''
+    config.headers.uId = sessionStorage.getItem('uId') || ''
 
     return config;
 }, function (error) {
@@ -31,10 +27,9 @@ axios.interceptors.request.use(function (config) {
     return Promise.reject(error);
 });
 
-//接收拦截
-axios.interceptors.response.use(function (response) {
+//回调拦截
+instance.interceptors.response.use(function (response) {
     // Do something with response data
-
 
     if (!response.data.meta) {
         return response.data
@@ -66,8 +61,9 @@ axios.interceptors.response.use(function (response) {
 
 }, function (error) {
     // Do something with response error
+    router.push({path: '/404'})
     return Promise.reject(error);
 });
 
 
-export default axios
+export default instance

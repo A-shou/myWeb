@@ -1,5 +1,7 @@
-.aaaa{
-    font-size: 40px;
-    font-weight: bold;
-    color: #999;
+.box{
+    width: 800px;
+    margin: 40px auto;
+}
+#toolbar-container{
+    font-size: 12px;
 }

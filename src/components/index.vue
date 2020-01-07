@@ -1,6 +1,6 @@
 <template>
     <div class="aaa">
-        <p>首页</p>
+        <!--<p>首页</p>-->
         <router-view></router-view>
     </div>
 </template>

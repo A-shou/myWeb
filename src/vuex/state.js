@@ -13,7 +13,7 @@ let state = {
         time: 2,
     },
     loadingShow: false,  //加载动画公共状态
-    userInfo: {     //用户信息
+    userInfo: {     //用户信息 登录状态
         logState: false,
         data: null
     },
